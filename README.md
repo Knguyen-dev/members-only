@@ -62,20 +62,18 @@
 9. luxon: For date manipulation.
 10. express-session: For session handling in express.
 11. bcrypt: For hashing passwords
-12. cors: We need to enable cors so our front-end can communicate with our backend
-13. jest and supertest: Used for testing our express endpoints.
 
 - npm i connect-mongo express express-session mongoose passport passport-local bcrypt luxon
 - npm i -D dotenv nodemon
 
-- BOOK MARK: Currently following testing tutorial and finishing up the one endpoint. We want
-  to be able to finish up the testing file for it as well
-
 # Credits:
 
-1. Design inspiration: https://members-only-top.netlify.app/;
-2. Local strategy with mern (sessions): https://www.youtube.com/watch?v=FKnzS_icp20
-3. Local strategy with mern (jwt): https://www.youtube.com/watch?v=FlZVFnErMU4
-4. Mern and passport js local strategy: https://medium.com/@brendt_bly/simple-mern-passport-app-tutorial-4aec2105e367
+1.  inspiration: https://members-only-top.netlify.app/;
 
-5. jest and supertest help: https://www.youtube.com/watch?v=FKnzS_icp20;
+- NOTE: Just need this for the front end. This uses mern and uses the ideas from the next lesson/project, so just use this as a css inspiration.
+
+# Test user:
+
+- Test user email is 'knguyen44@ivytech.edu' while password is 'Password_123';
+- Member user "mymember@ivytech.edu' with password 'Password_123'
+- Admin user "myadmin@ivytech.edu' with password 'Password_123'

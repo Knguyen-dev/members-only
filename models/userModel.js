@@ -37,14 +37,10 @@ const userSchema = new mongoose.Schema(
       any more functionality.
     */
 
-		is_member: {
-			type: Boolean,
-			default: false,
-		},
-
-		is_admin: {
-			type: Boolean,
-			default: false,
+		role: {
+			type: String,
+			enum: ["user", "member", "admin"],
+			default: "user",
 		},
 	},
 	{
@@ -55,6 +51,10 @@ const userSchema = new mongoose.Schema(
 
 userSchema.virtual("full_name").get(function () {
 	return `${this.first_name} ${this.last_name}`;
+});
+
+userSchema.virtual("url").get(function () {
+	return `/users/${this.id}`;
 });
 
 userSchema.statics.signup = async function (

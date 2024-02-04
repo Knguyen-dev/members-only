@@ -1,0 +1,32 @@
+<form method="POST" class="message-form">
+    <h1>
+      <% if (locals.isUpdate) { %>  
+        <span>Update your Message!</span>
+      <% } else { %>
+        <span>Create a new Message!</span>
+      <% } %>
+    
+    </h1>
+    <div class="input-group">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" value="<%- locals.message ? locals.message.title : '' %>"/>
+        <% if (locals.errors && locals.errors.title) { %>
+            <span class="input-error-el"><%= locals.errors.title %></span>
+        <% } %>
+    </div>
+
+    <div class="input-group">
+        <label for="content">Content:</label>
+        <input type="text" name="content" id="content" value="<%- locals.message ? locals.message.content : '' %>"/>
+        <% if (locals.errors && locals.errors.content) { %>
+            <span class="input-error-el"><%= locals.errors.content %></span>
+        <% } %>
+    </div>
+    <button type="submit">
+      <% if (locals.isUpdate) { %>  
+        <span>Update</span>
+      <% } else { %>
+        <span>Create</span>
+      <% } %>
+    </button>
+</form>

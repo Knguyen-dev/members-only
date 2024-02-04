@@ -1,0 +1,47 @@
+<form method="POST" class="sign-up-form">
+    <h1>Sign up!</h1>
+    <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" />
+        <% if (locals.errors && locals.errors.email) { %>
+            <span class="input-error-el"><%= locals.errors.email %></span>
+        <% } %>
+    </div>
+
+    <div class="input-group">
+        <label for="first_name">First name:</label>
+        <input type="text" name="first_name" id="first_name" />
+        <% if (locals.errors && locals.errors.first_name) { %>
+            <span class="input-error-el"><%= locals.errors.first_name %></span>
+        <% } %>
+    </div>
+
+    <div class="input-group">
+        <label for="last_name">Last name:</label>
+        <input type="text" name="last_name" id="last_name" />
+        <% if (locals.errors && locals.errors.last_name) { %>
+            <span class="input-error-el"><%= locals.errors.last_name %></span>
+        <% } %>
+    </div>
+
+    <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+        <% if (locals.errors && locals.errors.password) { %>
+            <span class="input-error-el"><%= locals.errors.password %></span>
+        <% } %>
+    </div>
+
+    <div class="input-group">
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" />
+        <% if (locals.errors && locals.errors.confirm_password) { %>
+            <span class="input-error-el"><%= locals.errors.confirm_password %></span>
+        <% } %>
+    </div>
+
+    <button type="submit">Sign up</button>
+    <div class="link-container">
+      <a href="/auth/login">Login instead?</a>
+    </div>
+</form>

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { DateTime } = require("luxon");
 
 const messageSchema = new mongoose.Schema(
 	{
@@ -20,18 +21,22 @@ const messageSchema = new mongoose.Schema(
 			type: Boolean,
 			default: false,
 		},
-		num_upvotes: {
-			type: Number,
-			default: 0,
-		},
-		num_downvotes: {
-			type: Number,
-			default: 0,
-		},
 	},
 	{
 		timestamps: true,
 	}
 );
+
+messageSchema.virtual("formatted_created_date").get(function () {
+	return DateTime.fromJSDate(this.createdAt).toLocaleString(
+		DateTime.DATETIME_MED
+	);
+});
+
+messageSchema.virtual("formatted_update_date").get(function () {
+	return DateTime.fromJSDate(this.updatedAt).toLocaleString(
+		DateTime.DATETIME_MED
+	);
+});
 
 module.exports = mongoose.model("Message", messageSchema);

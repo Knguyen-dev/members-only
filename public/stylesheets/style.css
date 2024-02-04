@@ -1,0 +1,149 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--dark-slate: #0f172a;
+	--medium-slate: #334155;
+	--light-slate: #f1f5f9;
+	--lime: #84cc16;
+	--border-radius: 4px;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+body {
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00b7ff;
+}
+
+.nav-list {
+	display: flex;
+	column-gap: 1em;
+}
+
+.app-container {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
+.app-header,
+.app-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--dark-slate);
+	color: var(--light-slate);
+	padding: 0.8em 0;
+	font-size: 1.2em;
+}
+
+.app-main {
+	background-color: var(--medium-slate);
+	color: var(--light-slate);
+	padding: 1.5em 2em;
+}
+
+.main-content {
+	margin-top: 1em;
+}
+
+/* form styling */
+label,
+input {
+	display: block;
+}
+input {
+	padding: 10px;
+	margin-top: 10px;
+	margin-bottom: 12px;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: var(--border-radius);
+}
+form button {
+	background: var(--primary);
+	border: none;
+	color: #fff;
+	background-color: var(--lime);
+	padding: 8px 16px;
+	font-size: 16px;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+}
+
+form h1 {
+	margin-bottom: 8px;
+}
+
+.link-container {
+	margin-top: 16px;
+}
+
+.sign-up-form,
+.login-form,
+.admin-form,
+.message-form,
+.member-form {
+	width: 30%;
+	margin: 0 auto;
+}
+
+.input-group {
+	margin-bottom: 12px;
+}
+
+/* Messages and messages page */
+.page-title {
+	margin-bottom: 12px;
+	text-align: center;
+}
+
+.messages-container {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+}
+
+.message {
+	background-color: #1e293b;
+	color: white;
+	padding: 1.2em 0.8em;
+	border-radius: var(--border-radius);
+}
+.message-header h1 {
+	margin-bottom: 4px;
+}
+
+.message hr {
+	margin: 8px 0;
+}
+.message-links-container {
+	margin: 8px 0;
+	display: flex;
+	flex-direction: column;
+	row-gap: 12px;
+}
+
+/* User details page */
+.user-details-header {
+	margin-bottom: 12px;
+}
+
+.user-details-header ul {
+	margin-top: 8px;
+}
+.user-details-header ul li {
+	margin-bottom: 4px;
+}

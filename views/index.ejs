@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head") %>
+	<body>
+
+    <div class="app-container">
+      <%- include("./partials/header") %>
+      <main class="app-main">
+        <h1 class="page-title">Messages</h1>
+        <% if (locals.messages.length > 0) { %>
+          <div class="messages-container">
+            <% locals.messages.forEach(function(message) { %>
+                <div class="message">
+                    <div class="message-header">
+                        <h1><%- message.title %></h1>
+                        <!-- 
+                        - There are two conditions where a user can see the author of a post:
+                          1. If user is authenticated and their role isn't user, then they're a 'member' or 'admin', then
+                          they should be able to see who wrote the post. 
+                          2. If it is their own post, then they should be able to see that they wrote it.
+                        -->
+                        <% if ((locals.currentUser && locals.currentUser.role !== "user") || (locals.currentUser && locals.currentUser.email === message.user.email)) { %>
+                          <a href=<%= message.user.url %>>
+                            <p>Author: <%= message.user.full_name %></p>
+                          </a>
+                        <% } %>
+                        <p>Posted On: <%= message.formatted_created_date %></p>
+                        <% if (message.is_edited ) { %>
+                          <p>Edited on: <%= message.formatted_update_date %></p>
+                        <% } %>
+
+                        <div class="message-links-container">
+                          <!-- If it's the user's own post, given them a button that they can use to edit it -->
+                          <% if (locals.currentUser && locals.currentUser.email === message.user.email) { %>
+                            <div><a href=<%= `/messages/${message.id}/update`%>>Edit</a></div>
+                          <% } %>
+
+
+
+                          <!-- If the user is an admin show them a delete button -->
+                          <% if (locals.currentUser && locals.currentUser.role === "admin") { %>
+
+                            
+                            <form action="/messages/<%= message.id %>/delete" method="POST">
+                              <button type="submit">Delete</button>
+                            </form>
+                          <% } %>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="message-content"><%- message.content %></div>
+                </div>
+            <% }); %>
+          </div>
+        <% } else { %>
+            <div>No Messages Yet</div>
+        <% } %>
+      </main>
+      <%- include("./partials/footer") %>
+    </div>
+		
+	</body>
+</html>

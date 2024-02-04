@@ -1,0 +1,19 @@
+<header class="app-header">
+	<div class="header-brand">
+		<h1>MembersOnly</h1>
+	</div>
+  <nav class="nav">
+    <ul class="nav-list">
+      <% if (locals.currentUser) { %>
+        <li><a href="/">Home</a></li>
+        <li><a href="/messages/create">Create Message</a></li>
+        <li><a href=<%= "/users/" + locals.currentUser.id %>>My Account</a></li>
+        <li><a href="/auth/logout">Log out</a></li>
+      <% } else { %>
+          <li><a href="/">Home</a></li>
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/sign-up">Register</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

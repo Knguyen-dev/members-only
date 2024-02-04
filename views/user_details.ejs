@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head") %>
+	<body>
+    <div class="app-container">
+      <%- include("./partials/header") %>
+      <main class="app-main">
+        <header class="user-details-header">
+          <% if (locals.currentUser.email === locals.user.email) { %>
+            <h1>My Account:</h1>
+          <% } %>
+          <h2>Email: <%= locals.user.email %></h2>
+          <h3>Full name: <%= locals.user.full_name %></h3>
+          <h3>Member Status: <%= locals.user.role %></h3>
+
+
+          <!-- 
+            - If the user is looking at their own account, then we can show them
+            the options of becoming an admin or becoming a member
+           -->
+          <% if (locals.currentUser && locals.currentUser.email === locals.user.email) { %>
+            <ul>
+              <li><a href="/users/member_register">Become a member</a></li>
+              <li><a href="/users/admin_register">Become an admin</a></li>
+            </ul>
+          <% } %>
+          
+        </header>
+
+        <h1 class="page-title">My Messages</h1>
+        
+        <% if (locals.messages.length > 0) { %>
+          <div class="messages-container">
+            <% locals.messages.forEach(function(message) { %>
+                <div class="message">
+                    <div class="message-header">
+                        <h1><%- message.title %></h1>
+                        <span><%= message.formatted_created_date %></span>   
+                    </div>
+                    <hr>
+                    <div class="message-content"><%- message.content %></div>
+                </div>
+            <% }); %>
+          </div>
+            
+        <% } else { %>
+            <div>No Messages Yet</div>
+        <% } %>
+      </main>
+      <%- include("./partials/footer") %>
+    </div>
+		
+	</body>
+</html>

@@ -1,0 +1,11 @@
+<form method="post" class="admin-form">
+  <h1>Become an Admin!</h1>
+  <div class="input-group">
+    <label for="secret_code">Secret Code:</label>
+    <input type="text" name="secret_code" id="secret_code" placeholder="Code is: <%= locals.secret_code %>"/>
+    <% if (locals.errors && locals.errors.secret_code) { %>
+        <span class="input-error-el"><%= locals.errors.secret_code %></span>
+    <% } %>
+  </div>
+  <button type="submit">Sign up</button>
+</form>

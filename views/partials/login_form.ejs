@@ -1,0 +1,22 @@
+<form method="POST" class="login-form">
+    <h1>Login!</h1>
+    <div class="input-group">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" value="knguyen44@ivytech.edu"/>
+        <% if (locals.errors && locals.errors.email) { %>
+            <span class="input-error-el"><%= locals.errors.email %></span>
+        <% } %>
+    </div>
+
+    <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" value="Password_123"/>
+        <% if (locals.errors && locals.errors.password) { %>
+            <span class="input-error-el"><%= locals.errors.password %></span>
+        <% } %>
+    </div>
+    <button type="submit">Login</button>
+    <div class="link-container">
+      <a href="/auth/sign-up">Sign up instead?</a>
+    </div>
+</form>
