@@ -2,7 +2,7 @@
     <h1>Login!</h1>
     <div class="input-group">
         <label for="email">Email:</label>
-        <input type="text" name="email" id="email" value="knguyen44@ivytech.edu"/>
+        <input type="text" name="email" id="email" />
         <% if (locals.errors && locals.errors.email) { %>
             <span class="input-error-el"><%= locals.errors.email %></span>
         <% } %>
@@ -10,7 +10,7 @@
 
     <div class="input-group">
         <label for="password">Password:</label>
-        <input type="password" name="password" id="password" value="Password_123"/>
+        <input type="password" name="password" id="password"/>
         <% if (locals.errors && locals.errors.password) { %>
             <span class="input-error-el"><%= locals.errors.password %></span>
         <% } %>
